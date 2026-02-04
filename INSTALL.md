@@ -2,9 +2,11 @@
 # Installing ModTek v3
 
 > **Note**
+> Verify the integrity of game files (Steam/GOG), to make sure you don't have old-style injected files lying around.
 > ModTek v3 or later does **not** have a `ModTekInjector.exe` anymore, and instead it uses 
 > [UnityDoorstop](https://github.com/BattletechModders/UnityDoorstop), which is based on hooking via libraries.
 > OS platforms (Windows, Linux, Mac) and game distribution platforms (Steam, GOG) are supported.
+
 
 > **Warning**
 > For ModTek to work properly, BATTLETECH should be installed outside of the program files folder structure,
@@ -78,6 +80,11 @@ For a standard Steam installation that means the following path:
 > `~/"Library/Application Support/Steam/steamapps/common/BATTLETECH/BattleTech.app/Contents/Resources/"`
 
 The easiest way to go to this folder is to go into Steam and select the gear icon->Manage->Browse local files. This will open up a Finder window. Right click on the Battletech app and select "Show Package Contents." From the next view, double click on Contents and then Resources. You are now in the correct folder. Copy the content of the ModTek download into the Resources folder.
+
+Run the follwoing in the `Resources` folder to remove the code signature from the executable, as it prevents injections:
+```sh
+codesign --remove-signature Battletech
+```
 
 ### Steam on macOS
 
